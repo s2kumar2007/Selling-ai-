@@ -1,0 +1,101 @@
+sku,name,category,brand,price,cost,stock
+S001,"Carrafel Bifold Wallet, Black",accessories,Carrafel,2299,843,1
+S002,"Carrafel Slim Wallet, Black",accessories,Carrafel,899,323,0
+S003,"Ledgerly Bifold Wallet, Black",accessories,Ledgerly,1599,752,0
+S004,"Pacevo Baseball Cap, White",accessories,Pacevo,1049,406,13
+S005,"Strydo Trucker Cap, Red",accessories,Strydo,699,242,22
+S006,"Tanaro Bifold Wallet, Tan",accessories,Tanaro,1399,486,1
+S007,"Tanaro Card Holder Wallet, Tan",accessories,Tanaro,2399,1261,3
+S008,"Tanaro Zip Wallet, Brown",accessories,Tanaro,1199,634,39
+S009,"Urbanyx Baseball Cap, White",accessories,Urbanyx,599,308,0
+S010,"Urbanyx Corduroy Cap, Beige",accessories,Urbanyx,699,385,4
+S011,"Kesar Loom Pathani Kurta, Pink",apparel,Kesar Loom,699,352,33
+S012,"Loomsy Checked Shirt, Pink",apparel,Loomsy,2699,1143,33
+S013,"Loomsy Halterneck Dress, Green",apparel,Loomsy,1849,1206,0
+S014,"Loomsy Mandarin Collar Shirt, White",apparel,Loomsy,2299,1332,18
+S015,"Loomsy Poplin Shirt, Beige",apparel,Loomsy,2499,1307,25
+S016,"Loomsy Tiered Dress, Maroon",apparel,Loomsy,2099,1055,7
+S017,"Loomsy Wrap Dress, White",apparel,Loomsy,2199,1441,17
+S018,"Mehrin Chikankari Kurta, Beige",apparel,Mehrin,699,424,29
+S019,"Mehrin Silk Blend Kurta, Yellow",apparel,Mehrin,1799,1062,3
+S020,"Mehrin Smocked Dress, Pink",apparel,Mehrin,2199,1106,3
+S021,"Northweft Checked Shirt, Blue",apparel,Northweft,899,489,0
+S022,"Northweft Poplin Shirt, Black",apparel,Northweft,999,637,1
+S023,"Northweft Quick-Dry T-Shirt, White",apparel,Northweft,2249,992,36
+S024,"Northweft Rain Jacket, Beige",apparel,Northweft,6649,4299,3
+S025,"Northweft Regular Fit T-Shirt, Red",apparel,Northweft,1299,459,1
+S026,"Northweft Skinny Jeans, Navy",apparel,Northweft,1399,507,0
+S027,"Northweft V-Neck T-Shirt, Grey",apparel,Northweft,699,303,10
+S028,"Pacevo Slim Fit T-Shirt, Green",apparel,Pacevo,949,485,2
+S029,"Pacevo V-Neck T-Shirt, Yellow",apparel,Pacevo,799,344,20
+S030,"Strydo Fleece Hoodie, Black",apparel,Strydo,1599,641,3
+S031,"Strydo Lightweight Track Pants, Grey",apparel,Strydo,2399,1146,36
+S032,"Strydo Oversized Hoodie, Grey",apparel,Strydo,2449,1458,2
+S033,"Strydo Straight Track Pants, Black",apparel,Strydo,1899,995,14
+S034,"Strydo Tapered Track Pants, Black",apparel,Strydo,1999,859,29
+S035,"Strydo Zip-Through Hoodie, Black",apparel,Strydo,1099,716,32
+S036,"Tanaro Bootcut Jeans, Grey",apparel,Tanaro,2149,1108,11
+S037,"Tanaro Cotton Straight Kurta, Blue",apparel,Tanaro,2699,1219,0
+S038,"Tanaro Denim Shirt, Olive",apparel,Tanaro,1899,1243,0
+S039,"Tanaro Linen Shirt, Pink",apparel,Tanaro,949,395,11
+S040,"Tanaro Mandarin Collar Shirt, White",apparel,Tanaro,949,600,2
+S041,"Tanaro Oxford Shirt, White",apparel,Tanaro,799,388,9
+S042,"Tanaro Poplin Shirt, Blue",apparel,Tanaro,749,369,39
+S043,"Tanaro Printed Kurta, Blue",apparel,Tanaro,1349,749,0
+S044,"Tanaro Quick-Dry T-Shirt, Black",apparel,Tanaro,749,374,3
+S045,"Tanaro Regular Fit T-Shirt, Grey",apparel,Tanaro,899,436,2
+S046,"Tanaro Slim Jeans, Black",apparel,Tanaro,1499,678,20
+S047,"Urbanyx Quilted Jacket, Navy",apparel,Urbanyx,3099,1766,0
+S048,"Urbanyx Rain Jacket, Black",apparel,Urbanyx,2249,1184,28
+S049,"Urbanyx Tapered Jeans, Black",apparel,Urbanyx,2699,1696,29
+S050,"Urbanyx Windcheater Jacket, Brown",apparel,Urbanyx,6999,3197,26
+S051,"Zentrail Puffer Jacket, Navy",apparel,Zentrail,5199,1963,3
+S052,"Zentrail Rain Jacket, Navy",apparel,Zentrail,1299,634,28
+S053,"Zentrail Straight Track Pants, Grey",apparel,Zentrail,1699,1037,12
+S054,"Zentrail Training Track Pants, Black",apparel,Zentrail,2399,1154,32
+S055,"Zentrail Windcheater Jacket, Navy",apparel,Zentrail,1799,858,7
+S056,"Carrafel Anti-Theft 24L Backpack, Navy",bags,Carrafel,1499,636,1
+S057,"Packwise Travel 32L Backpack, Red",bags,Packwise,949,595,3
+S058,"Zentrail Anti-Theft 24L Backpack, Red",bags,Zentrail,4249,1563,10
+S059,"Zentrail Daypack 18L Backpack, Black",bags,Zentrail,1149,649,9
+S060,"Zentrail Laptop 25L Backpack, Red",bags,Zentrail,1349,907,17
+S061,"Zentrail School 20L Backpack, Red",bags,Zentrail,4499,2185,0
+S062,"Audora Gaming Headphones, Black",electronics,Audora,11599,7972,10
+S063,"Audora Studio Over-Ear Headphones, White",electronics,Audora,1499,820,0
+S064,"Sonquil Gaming Headphones, Black",electronics,Sonquil,1099,874,11
+S065,"Sonquil Kids Wireless Headphones, Black",electronics,Sonquil,1799,1329,1
+S066,"Sonquil Studio Over-Ear Headphones, White",electronics,Sonquil,1349,864,5
+S067,"Wavlo Gaming Headphones, Grey",electronics,Wavlo,1899,1118,7
+S068,"Wavlo Noise-Cancelling Over-Ear Headphones, Black",electronics,Wavlo,2299,1642,36
+S069,"Kudova Canvas Sneakers, Green",footwear,Kudova,3599,2394,0
+S070,"Kudova Classic Sneakers, Navy",footwear,Kudova,1699,1213,4
+S071,"Kudova Comfort Sandals, Navy",footwear,Kudova,999,673,5
+S072,"Kudova Drift Running Shoes, Blue",footwear,Kudova,2849,1223,1
+S073,"Kudova Flip Sandals, Brown",footwear,Kudova,1599,669,31
+S074,"Kudova Hi-Top Sneakers, White",footwear,Kudova,5199,2966,1
+S075,"Kudova Trek Sandals, Black",footwear,Kudova,3699,1968,13
+S076,"Loomsy Hi-Top Sneakers, Grey",footwear,Loomsy,1699,1218,23
+S077,"Loomsy Retro Low Sneakers, Green",footwear,Loomsy,7149,4442,1
+S078,"Pacevo Canvas Sneakers, Green",footwear,Pacevo,2599,1066,15
+S079,"Pacevo Comet Running Shoes, Navy",footwear,Pacevo,2999,1171,2
+S080,"Pacevo Court Sneakers, Green",footwear,Pacevo,2499,1193,31
+S081,"Pacevo Drift Running Shoes, White",footwear,Pacevo,2399,938,25
+S082,"Pacevo Flux Running Shoes, Red",footwear,Pacevo,4899,1985,36
+S083,"Pacevo Hi-Top Sneakers, Beige",footwear,Pacevo,3099,1474,25
+S084,"Pacevo Retro Low Sneakers, Black",footwear,Pacevo,3499,2246,2
+S085,"Pacevo Ridge Running Shoes, Navy",footwear,Pacevo,1899,1160,37
+S086,"Strydo Comet Running Shoes, Navy",footwear,Strydo,3849,2843,16
+S087,"Strydo Comfort Sandals, Navy",footwear,Strydo,699,338,31
+S088,"Strydo Cushion Sandals, Grey",footwear,Strydo,3999,1854,8
+S089,"Strydo Slide Sandals, Grey",footwear,Strydo,899,610,19
+S090,"Strydo Surge Running Shoes, Blue",footwear,Strydo,4349,1771,30
+S091,"Urbanyx Comfort Sandals, Black",footwear,Urbanyx,699,329,23
+S092,"Urbanyx Court Sneakers, Green",footwear,Urbanyx,1799,1128,37
+S093,"Urbanyx Strap Sandals, Olive",footwear,Urbanyx,3099,1478,1
+S094,"Zentrail Drift Running Shoes, Grey",footwear,Zentrail,4399,1809,26
+S095,"Zentrail Surge Running Shoes, White",footwear,Zentrail,5999,4345,1
+S096,"Zentrail Tempo Running Shoes, Grey",footwear,Zentrail,8999,6538,19
+S097,"Tikkra Dress Watch, Gold",watches,Tikkra,5799,3243,0
+S098,"Tikkra Field Watch, Gold",watches,Tikkra,6199,3815,0
+S099,"Wavlo Chronograph Watch, Gold",watches,Wavlo,7299,4994,2
+S100,"Wavlo Digital Sport Watch, Silver",watches,Wavlo,4649,2203,23

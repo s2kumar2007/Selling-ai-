@@ -1,0 +1,25 @@
+{
+  "best_on_train": {
+    "beta": 0.5,
+    "open_discount": 0.0,
+    "final_start": 7,
+    "accept_gain": 1.0,
+    "gamble_min_ratio": 0.85
+  },
+  "held_out_tuned": {
+    "score": 55.39752140441821,
+    "policy": 0,
+    "truth": 0,
+    "deadlocks": 20,
+    "deal_rate": 0.7746031746031746,
+    "margin": 0.725450944202872
+  },
+  "held_out_current": {
+    "score": 56.75510174963763,
+    "policy": 0,
+    "truth": 0,
+    "deadlocks": 20,
+    "deal_rate": 0.7746031746031746,
+    "margin": 0.7429893473493814
+  }
+}

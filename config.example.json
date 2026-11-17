@@ -1,0 +1,17 @@
+{
+  "beta": 0.8,
+  "open_discount": 0.0,
+  "final_start": 8,
+  "accept_gain": 1.0,
+  "gamble_min_ratio": 0.85,
+  "use_llm": false,
+  "seller_model": "",
+  "buyer_model": "",
+  "traceware_enabled": false,
+  "traceware_scope": "all",
+  "temperature": 0.2,
+  "max_tokens": 200,
+  "timeout_s": 20,
+  "max_retries": 4,
+  "max_calls_per_minute": 25
+}

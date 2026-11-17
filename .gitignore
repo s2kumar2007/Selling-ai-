@@ -1,0 +1,12 @@
+.env
+*.key
+secrets/
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+logs/*
+!logs/.gitkeep
+eval/out/
+*.jsonl
+!eval/baselines/*.jsonl

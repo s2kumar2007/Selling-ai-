@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Seller Trace Panel</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#1b1f24;--mute:#5b6570;--line:#dde1e6;--ok:#1f7a3d;--okbg:#e4f4ea;--bad:#b3261e;--badbg:#fbe9e7;--warn:#8a5a00;--warnbg:#fff3d6;--chip:#eceff3;--acc:#2456d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#101316;--card:#181c20;--ink:#e8ebee;--mute:#9aa4af;--line:#2b3138;--ok:#6fd08c;--okbg:#17301f;--bad:#ff8a80;--badbg:#3a1a17;--warn:#ffcf70;--warnbg:#3a2d10;--chip:#242a30;--acc:#8ab0ff}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+main{max-width:920px;margin:0 auto;padding:20px 16px 48px}
+h1{font-size:20px;margin:0 0 4px}.sub{color:var(--mute);margin:0 0 16px}
+.sum{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px}.pill{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 12px}
+.pill b{display:block;font-size:18px}.pill span{color:var(--mute);font-size:12px}
+.turn{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:720px){.turn{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.who{font-size:12px;color:var(--mute);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px;display:flex;justify-content:space-between}
+.items{font-variant-numeric:tabular-nums;color:var(--mute);font-size:13px;margin:4px 0}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.chip{background:var(--chip);border-radius:999px;padding:2px 9px;font-size:12px}
+.chip.risk{background:var(--badbg);color:var(--bad)}
+.badge{display:inline-block;border-radius:6px;padding:1px 8px;font-size:12px;font-weight:600}
+.PASS,.good{background:var(--okbg);color:var(--ok)}.BLOCK,.REGENERATE,.fail{background:var(--badbg);color:var(--bad)}.WARN,.none{background:var(--warnbg);color:var(--warn)}
+.ev{margin-top:8px;border-top:1px dashed var(--line);padding-top:8px;font-size:13px;color:var(--mute)}
+.ev div{margin:2px 0}.mono{font-variant-numeric:tabular-nums}
+.res{margin-top:6px;font-weight:600}
+</style></head><body><main>
+<h1>Seller trace panel</h1>
+<p class="sub" id="sub"></p>
+<div class="sum" id="sum"></div>
+<div id="turns"></div>
+</main>
+<script>
+const DATA = /*__DATA__*/null;
+const rs = n => "₹" + Number(n).toLocaleString("en-IN");
+const esc = s => String(s ?? "").replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+const lines = it => (it||[]).map(i => `${i.qty} × ${i.sku}` + (i.unit_price!=null ? ` @ ${rs(i.unit_price)}` : "")).join(", ");
+const RISK = new Set(["injection","authority_claim","policy_override","fake_message_json","prior_agreement","cost_probe","threat"]);
+document.getElementById("sub").textContent = `${DATA.persona} buyer · seed ${DATA.seed} · outcome: ${DATA.ended}`;
+const kpi = (v,l) => `<div class="pill"><b>${v}</b><span>${l}</span></div>`;
+const tw = DATA.traceware_configured;
+document.getElementById("sum").innerHTML =
+  kpi(DATA.deal ? rs(DATA.deal_total) : "no deal","outcome") + kpi(DATA.violations.length,"harness violations") +
+  kpi(DATA.blocked,"messages blocked by a gate") + kpi(tw ? "live" : "not configured","TraceWare");
+const byRound = {}; DATA.trace.forEach(t => byRound[t.round] = t);
+let html = "";
+DATA.transcript.forEach((m, i) => {
+  if (m.from !== "buyer") return;
+  const next = DATA.transcript[i+1], t = byRound[m.round];
+  const seen = new Set(); const claims = (t?.claims||[]).filter(c => !seen.has(c.kind) && seen.add(c.kind));
+  html += `<div class="turn"><div class="card"><div class="who"><span>Buyer · round ${m.round}</span><span>${esc(m.type)}</span></div>
+    <div>${esc(m.text)}</div><div class="items mono">${lines(m.items)}</div>
+    <div class="chips">${claims.length ? claims.map(c => `<span class="chip ${RISK.has(c.kind)?"risk":""}">${esc(c.kind.replace(/_/g," "))}${c.amount?` · ${rs(c.amount)}`:""}</span>`).join("") : `<span class="chip">no claims extracted</span>`}</div>
+    ${claims.length ? `<div class="ev">Treated as data: none of these changed the price or the floor.</div>`:""}</div>`;
+  if (next && next.from === "seller") {
+    const a = (t?.attempts||[]).slice(-1)[0] || {}, twr = a.traceware;
+    let verdict;
+    if (!twr) verdict = `<span class="badge none">not sent to TraceWare</span>`;
+    else if (twr.decision) verdict = `<span class="badge ${twr.decision}">${twr.decision}</span>`;
+    else verdict = `<span class="badge none">unavailable</span>`;
+    const ev = [];
+    ev.push(`<div>Local pre-check: <span class="badge ${a.local_ok?"good":"fail"}">${a.local_ok?"pass":"fail"}</span> ${esc((a.reasons||[]).join("; "))}</div>`);
+    if (twr) { ev.push(`<div>TraceWare: ${verdict} · ${twr.credits||0} credit · ${twr.latency_s}s</div>`);
+      if (twr.error) ev.push(`<div>${esc(twr.error)}</div>`);
+      (twr.violations||[]).forEach(v => ev.push(`<div>evidence: ${esc(typeof v==="string"?v:JSON.stringify(v))}</div>`)); }
+    else ev.push(`<div>TraceWare: ${DATA.traceware_configured ? "skipped for this message" : "not configured in this run (local check only)"}</div>`);
+    if ((t?.attempts||[]).length > 1) ev.push(`<div>${t.attempts.length} attempts; blocked drafts were replaced by a safe message.</div>`);
+    html += `<div class="card"><div class="who"><span>Seller · move: ${esc(t?.move||next.type)}</span><span>${esc(next.type)}</span></div>
+      <div>${esc(next.text)}</div><div class="items mono">${lines(next.items)}</div>
+      <div class="chips"><span class="chip">source: ${esc(a.source||"template")}</span></div><div class="ev">${ev.join("")}</div></div>`;
+  } else html += `<div class="card"><div class="who"><span>Negotiation ended</span></div><div class="res">${esc(DATA.ended)}</div></div>`;
+  html += `</div>`;
+});
+document.getElementById("turns").innerHTML = html;
+</script></body></html>
