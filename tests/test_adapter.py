@@ -27,7 +27,11 @@ def test_zero_violations_on_default_run():
 def test_beats_the_baseline_overall_and_zero_violations_per_bot():
     store, policy = load_store(), load_policy()
     scen = pb.make_scenarios(store, policy, 210, 0, pb.BUYERS)
-    base = ev.summarise(ev.run(ev.load_class(str(ROOT / "starter_kit" / "example_seller.py"), "Seller"),
+    try:
+        example_path = (ROOT / "starter_kit" / "example_seller.py").relative_to(Path.cwd()).as_posix()
+    except ValueError:
+        example_path = "starter_kit/example_seller.py"
+    base = ev.summarise(ev.run(ev.load_class(example_path, "Seller"),
                                scen, pb.BUYERS, store, policy)[0])
     ours, res = run_all()
     assert ours["score"] > base["score"]
