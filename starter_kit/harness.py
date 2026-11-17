@@ -269,7 +269,14 @@ def run_negotiation(seller, buyer, store, policy, negotiation_id="neg"):
 
 
 def load_class(spec, default):
-    path, _, name = spec.partition(":")
+    if ":" in spec:
+        cand_path, _, cand_name = spec.rpartition(":")
+        if ("/" in cand_name) or ("\\" in cand_name) or len(cand_path) == 1:
+            path, name = spec, default
+        else:
+            path, name = cand_path, cand_name
+    else:
+        path, name = spec, default
     path = Path(path).resolve()
     sys.path.insert(0, str(path.parent))
     mod_spec = importlib.util.spec_from_file_location(path.stem, path)
